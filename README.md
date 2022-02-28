@@ -4,6 +4,8 @@ Estimate the transaction fee price with the estimated/used gas.
 
 Issues, PRs are more than welcome.
 
+![example](./example.gif)
+
 ## Development
 
 To run your Remix app locally, make sure your project's local dependencies are installed:
