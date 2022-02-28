@@ -1,11 +1,15 @@
 export const calculateDeployment = (
   gasEstimation: string,
-  gasPrice: number,
+  gasPrice: string,
   currencyPrice: number
 ): string => {
   if (gasEstimation === "") return "";
   const _gasEstimation = parseInt(gasEstimation.replace(/,/g, ""));
-  return (_gasEstimation * (gasPrice / 10 ** 9) * currencyPrice).toFixed(2);
+  return (
+    _gasEstimation *
+    (parseFloat(gasPrice) / 10 ** 9) *
+    currencyPrice
+  ).toFixed(2);
 };
 
 export const validateGasInput = (gas: string) => {

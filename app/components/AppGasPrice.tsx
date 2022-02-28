@@ -5,7 +5,11 @@ export const AppGasPrice = ({
   gasTrack,
   gasEstimation,
   currencyPrice,
-}: any) => {
+}: {
+  gasTrack: any;
+  gasEstimation: string;
+  currencyPrice: number;
+}) => {
   const isValidGasEstimation =
     gasEstimation.length > 0 && validateGasInput(gasEstimation);
 
@@ -25,7 +29,7 @@ export const AppGasPrice = ({
                 $
                 {calculateDeployment(
                   gasEstimation,
-                  parseFloat(gasTrack.SafeGasPrice),
+                  gasTrack.SafeGasPrice,
                   currencyPrice
                 )}
               </Typography>
@@ -47,7 +51,7 @@ export const AppGasPrice = ({
                 $
                 {calculateDeployment(
                   gasEstimation,
-                  parseFloat(gasTrack.ProposeGasPrice),
+                  gasTrack.ProposeGasPrice,
                   currencyPrice
                 )}
               </Typography>
@@ -69,7 +73,7 @@ export const AppGasPrice = ({
                 $
                 {calculateDeployment(
                   gasEstimation,
-                  parseFloat(gasTrack.FastGasPrice),
+                  gasTrack.FastGasPrice,
                   currencyPrice
                 )}
               </Typography>

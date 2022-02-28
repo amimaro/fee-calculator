@@ -76,8 +76,8 @@ export default function Index() {
           </Typography>
           <AppGasPrice
             gasTrack={data.gasTrack.ethereum}
-            coinPrice={data.ethPrice}
             gasEstimation={gasEstimation}
+            currencyPrice={data.ethPrice}
           />
         </AppNetwork>
         <AppNetwork>
@@ -97,8 +97,8 @@ export default function Index() {
           </Typography>
           <AppGasPrice
             gasTrack={data.gasTrack.polygon}
-            coinPrice={data.maticPrice}
             gasEstimation={gasEstimation}
+            currencyPrice={data.maticPrice}
           />
         </AppNetwork>
       </AppNetworkWrapper>
