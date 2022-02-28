@@ -8,7 +8,9 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
-import CssBaseline from '@mui/material/CssBaseline';
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme";
+import { ThemeProvider } from "@mui/material/styles";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
@@ -38,7 +40,9 @@ export default function App() {
       </head>
       <body>
         <CssBaseline />
-        <Outlet />
+        <ThemeProvider theme={theme}>
+          <Outlet />
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
