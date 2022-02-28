@@ -65,27 +65,16 @@ export default function Index() {
   };
 
   console.log(data);
-  const [gasEstimation, setGasEstimation] = useState("4,541,091");
+  const [gasEstimation, setGasEstimation] = useState("");
 
   const validateGasInput = (gas: string) => {
     const pattern = /^[0-9,]*$/g;
     return gas.match(pattern) !== null;
   };
 
-  const parseGasEstimation = (gas: string) => {
-    return parseInt(gasEstimation.replace(/[,]/g, ""));
-  };
-
   const handleGasEstimationChange = (event: any) => {
     setGasEstimation(event.target.value);
   };
-
-  useEffect(() => {
-    if (!validateGasInput(gasEstimation)) {
-      return;
-    }
-    const parsedGasEstimation = parseGasEstimation(gasEstimation);
-  });
 
   return (
     <>
@@ -125,8 +114,11 @@ export default function Index() {
               Ethereum Mainnet
             </Link>
           </Typography>
-          <AppGasPrice gasTrack={data.gasTrack.ethereum} />
-          <AppDeployCost />
+          <AppGasPrice
+            gasTrack={data.gasTrack.ethereum}
+            coinPrice={data.ethPrice}
+            gasEstimation={gasEstimation}
+          />
         </AppNetwork>
         <AppNetwork>
           <Typography
@@ -142,8 +134,11 @@ export default function Index() {
               Polygon Mainnet
             </Link>
           </Typography>
-          <AppGasPrice gasTrack={data.gasTrack.polygon} />
-          <AppDeployCost />
+          <AppGasPrice
+            gasTrack={data.gasTrack.polygon}
+            coinPrice={data.maticPrice}
+            gasEstimation={gasEstimation}
+          />
         </AppNetwork>
       </AppNetworkWrapper>
     </>
