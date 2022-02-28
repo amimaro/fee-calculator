@@ -31,9 +31,10 @@ export default function Index() {
   const [gasEstimation, setGasEstimation] = useState("");
 
   const handleGasEstimationChange = (event: any) => {
-    if (event.target.value.length > 8) return;
-    if (!validateGasInput(event.target.value)) return;
-    setGasEstimation(event.target.value);
+    const val = event.target.value;
+    if (!validateGasInput(val)) return;
+    if (val.replace(/,/g, "").length > 8) return;
+    setGasEstimation(val);
   };
 
   return (
