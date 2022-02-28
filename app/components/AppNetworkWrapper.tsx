@@ -11,6 +11,7 @@ export const AppNetworkWrapper = ({ children }: any) => {
         flexDirection: isUpSm ? "row" : "column",
         flexWrap: "wrap",
         justifyContent: "space-between",
+        px: 2,
       }}
     >
       {children}
