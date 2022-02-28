@@ -15,7 +15,7 @@ export const AppGasPrice = ({
 
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-      <Card sx={{ width: 150, m: 1 }} variant="outlined">
+      <Card sx={{ width: 150, m: 0.5 }} variant="outlined">
         <CardContent>
           <Box sx={{ textAlign: "center" }}>
             <Typography variant="h6" component="div">
@@ -37,7 +37,7 @@ export const AppGasPrice = ({
           </Box>
         </CardContent>
       </Card>
-      <Card sx={{ width: 150, m: 1 }} variant="outlined">
+      <Card sx={{ width: 150, m: 0.5 }} variant="outlined">
         <CardContent>
           <Box sx={{ textAlign: "center" }}>
             <Typography variant="h6" component="div">
@@ -59,7 +59,7 @@ export const AppGasPrice = ({
           </Box>
         </CardContent>
       </Card>
-      <Card sx={{ width: 150, m: 1 }} variant="outlined">
+      <Card sx={{ width: 150, m: 0.5 }} variant="outlined">
         <CardContent>
           <Box sx={{ textAlign: "center" }}>
             <Typography variant="h6" component="div">

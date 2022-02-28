@@ -31,6 +31,8 @@ export default function Index() {
   const [gasEstimation, setGasEstimation] = useState("");
 
   const handleGasEstimationChange = (event: any) => {
+    if (event.target.value.length > 8) return;
+    if (!validateGasInput(event.target.value)) return;
     setGasEstimation(event.target.value);
   };
 
@@ -115,7 +117,7 @@ export default function Index() {
         }}
       >
         <Typography variant="h5" component="div">
-          What other resource can we put here?
+          What other resources can we put here?
         </Typography>
         <Link
           href="https://github.com/amimaro/fee-calculator/issues"
