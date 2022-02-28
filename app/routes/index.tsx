@@ -103,6 +103,26 @@ export default function Index() {
           />
         </AppNetwork>
       </AppNetworkWrapper>
+      <Box
+        sx={{
+          pt: 10,
+          textAlign: "center",
+          position: "sticky",
+          top: "100vh",
+          mb: 1,
+        }}
+      >
+        <Typography variant="h5" component="div">
+          What other network can we put here?
+        </Typography>
+        <Link
+          href="https://github.com/amimaro/fee-calculator/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Issue
+        </Link>
+      </Box>
     </>
   );
 }
