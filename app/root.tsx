@@ -13,7 +13,10 @@ import theme from "./theme";
 import { ThemeProvider } from "@mui/material/styles";
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return {
+    title: "Fee calculator",
+    description: "Calculate the transaction fee price using the estimated gas",
+  };
 };
 
 export const links: LinksFunction = () => {
