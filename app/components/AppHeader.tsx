@@ -7,12 +7,12 @@ export const AppHeader = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Gas Calculator
+            Fee Calculator
           </Typography>
           <IconButton
-            aria-label="github"
+            aria-label="github fee-calculator repository"
             color="secondary"
-            href="https://github.com"
+            href="https://github.com/amimaro/fee-calculator"
             target="_blank"
             rel="noopener noreferrer"
           >
