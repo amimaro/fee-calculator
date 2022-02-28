@@ -1,7 +1,14 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
-import { calculateDeployment } from "~/utils/calculations";
+import { calculateDeployment, validateGasInput } from "~/utils/calculations";
 
-export const AppGasPrice = ({ gasTrack, coinPrice, gasEstimation }: any) => {
+export const AppGasPrice = ({
+  gasTrack,
+  gasEstimation,
+  currencyPrice,
+}: any) => {
+  const isValidGasEstimation =
+    gasEstimation.length > 0 && validateGasInput(gasEstimation);
+
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Card sx={{ width: 150, m: 1 }} variant="outlined">
@@ -13,13 +20,13 @@ export const AppGasPrice = ({ gasTrack, coinPrice, gasEstimation }: any) => {
             <Typography variant="h6" component="div" color="success.main">
               {gasTrack.SafeGasPrice} gwei
             </Typography>
-            {gasEstimation.length > 0 && (
+            {isValidGasEstimation && (
               <Typography variant="h6" component="div" color="success.main">
                 $
                 {calculateDeployment(
                   gasEstimation,
                   parseFloat(gasTrack.SafeGasPrice),
-                  coinPrice
+                  currencyPrice
                 )}
               </Typography>
             )}
@@ -35,13 +42,13 @@ export const AppGasPrice = ({ gasTrack, coinPrice, gasEstimation }: any) => {
             <Typography variant="h6" component="div" color="info.main">
               {gasTrack.ProposeGasPrice} gwei
             </Typography>
-            {gasEstimation.length > 0 && (
+            {isValidGasEstimation && (
               <Typography variant="h6" component="div" color="info.main">
                 $
                 {calculateDeployment(
                   gasEstimation,
                   parseFloat(gasTrack.ProposeGasPrice),
-                  coinPrice
+                  currencyPrice
                 )}
               </Typography>
             )}
@@ -57,13 +64,13 @@ export const AppGasPrice = ({ gasTrack, coinPrice, gasEstimation }: any) => {
             <Typography variant="h6" component="div" color="error">
               {gasTrack.FastGasPrice} gwei
             </Typography>
-            {gasEstimation.length > 0 && (
+            {isValidGasEstimation && (
               <Typography variant="h6" component="div" color="error">
                 $
                 {calculateDeployment(
                   gasEstimation,
                   parseFloat(gasTrack.FastGasPrice),
-                  coinPrice
+                  currencyPrice
                 )}
               </Typography>
             )}

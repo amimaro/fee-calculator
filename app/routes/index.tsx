@@ -14,6 +14,7 @@ import { useState } from "react";
 import { AppGasPrice } from "~/components/AppGasPrice";
 import { AppNetworkWrapper } from "~/components/AppNetworkWrapper";
 import { AppNetwork } from "~/components/AppNetwork";
+import { validateGasInput } from "~/utils/calculations";
 
 export const loader: LoaderFunction = async () => {
   const market = await getMarketData();
@@ -29,11 +30,6 @@ export default function Index() {
   const data = useLoaderData();
   const [gasEstimation, setGasEstimation] = useState("");
 
-  const validateGasInput = (gas: string) => {
-    const pattern = /^[0-9,]*$/g;
-    return gas.match(pattern) !== null;
-  };
-
   const handleGasEstimationChange = (event: any) => {
     setGasEstimation(event.target.value);
   };
@@ -41,6 +37,7 @@ export default function Index() {
   return (
     <>
       <AppHeader />
+
       <Box
         component="form"
         sx={{
@@ -74,7 +71,8 @@ export default function Index() {
               rel="noopener noreferrer"
             >
               Ethereum Mainnet
-            </Link>
+            </Link>{" "}
+            (${data.ethPrice})
           </Typography>
           <AppGasPrice
             gasTrack={data.gasTrack.ethereum}
@@ -94,7 +92,8 @@ export default function Index() {
               rel="noopener noreferrer"
             >
               Polygon Mainnet
-            </Link>
+            </Link>{" "}
+            (${data.maticPrice})
           </Typography>
           <AppGasPrice
             gasTrack={data.gasTrack.polygon}
