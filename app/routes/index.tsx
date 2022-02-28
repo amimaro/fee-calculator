@@ -113,7 +113,7 @@ export default function Index() {
         }}
       >
         <Typography variant="h5" component="div">
-          What other network can we put here?
+          What other resource can we put here?
         </Typography>
         <Link
           href="https://github.com/amimaro/fee-calculator/issues"
