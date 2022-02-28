@@ -46,6 +46,9 @@ export default function Index() {
         }}
         noValidate
         autoComplete="off"
+        onSubmit={(e: { preventDefault: () => void }) => {
+          e.preventDefault();
+        }}
       >
         <FormControl variant="filled" error={!validateGasInput(gasEstimation)}>
           <InputLabel htmlFor="gas-estimation">Gas Estimation</InputLabel>
