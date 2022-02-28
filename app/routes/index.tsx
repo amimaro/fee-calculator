@@ -4,67 +4,29 @@ import { getMarketData } from "~/services/market-data.service";
 import { AppHeader } from "~/components/AppHeader";
 import {
   Box,
-  Card,
-  CardContent,
   FilledInput,
   FormControl,
   InputLabel,
   Link,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Typography,
-  useTheme,
-  useMediaQuery,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AppGasPrice } from "~/components/AppGasPrice";
 import { AppNetworkWrapper } from "~/components/AppNetworkWrapper";
 import { AppNetwork } from "~/components/AppNetwork";
-import { AppDeployCost } from "~/components/AppDeployCost";
 
-// export const loader: LoaderFunction = async () => {
-//   const market = await getMarketData();
-//   const gasTrack = await getGasTrack();
-//   return {
-//     ethPrice: market[0].current_price,
-//     maticPrice: market[1].current_price,
-//     gasTrack,
-//   };
-// };
+export const loader: LoaderFunction = async () => {
+  const market = await getMarketData();
+  const gasTrack = await getGasTrack();
+  return {
+    ethPrice: market[0].current_price,
+    maticPrice: market[1].current_price,
+    gasTrack,
+  };
+};
 
 export default function Index() {
-  const data = {
-    ethPrice: 2638.42,
-    maticPrice: 1.47,
-    gasTrack: {
-      ethereum: {
-        LastBlock: "14293917",
-        SafeGasPrice: "43",
-        ProposeGasPrice: "44",
-        FastGasPrice: "46",
-        suggestBaseFee: "42.71176625",
-        gasUsedRatio:
-          "0.281619996178663,0.288661591373509,0.17301922102736,0.999942701302555,0.956404868722434",
-      },
-      polygon: {
-        LastBlock: "25416836",
-        SafeGasPrice: "31",
-        ProposeGasPrice: "38.1",
-        FastGasPrice: "38.6",
-        suggestBaseFee: "0.000000015",
-        gasUsedRatio:
-          "0.1079824,0.1878007,0.224546733333333,0.313471433333333,0.131253",
-        UsdPrice: "1.47",
-      },
-    },
-  };
-
-  console.log(data);
+  const data = useLoaderData();
   const [gasEstimation, setGasEstimation] = useState("");
 
   const validateGasInput = (gas: string) => {
